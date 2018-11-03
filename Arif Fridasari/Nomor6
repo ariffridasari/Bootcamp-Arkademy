@@ -1,0 +1,98 @@
+CREATE DATABASE IF NOT EXISTS arif;
+ 
+USE arif
+
+CREATE TABLE product_categories(
+   id int not null auto_increment primary key,
+   name varchar(355) not null,
+   created_date DATETIME NOT NULL DEFAULT NOW()
+) ENGINE=InnoDB;
+ 
+CREATE TABLE products(
+   id int not null primary key,
+   name varchar(355) not null,
+   category_id int not null,
+   created_date DATETIME NOT NULL DEFAULT NOW(),
+   FOREIGN KEY fk_cat(category_id)
+   REFERENCES product_categories(id)
+   ON UPDATE CASCADE
+   ON DELETE RESTRICT
+)ENGINE=InnoDB;
+
+INSERT INTO product_categories(id,name,created_date) VALUES (1,"Peralatan Mandi",NOW());
+INSERT INTO product_categories(id,name,created_date) VALUES (2,"Minuman Kemasan",NOW());
+INSERT INTO product_categories(id,name,created_date) VALUES (3,"Produk Susu",NOW());
+
+
+
+INSERT INTO products(id,name,category_id,created_date) VALUES (1,"Sabun Wangi",1,NOW());
+INSERT INTO products(id,name,category_id,created_date) VALUES (2,"Minuman Colai",2,NOW());
+INSERT INTO products(id,name,category_id,created_date) VALUES (3,"Prenagon Gold",3,NOW());
+
+INSERT INTO products(id,name,category_id,created_date) VALUES (5,"Aquaa",2,NOW());
+INSERT INTO products(id,name,category_id,created_date) VALUES (6,"The Botol",2,NOW());
+INSERT INTO products(id,name,category_id,created_date) VALUES (7,"Sampo",1,NOW());
+
+
+
+SELECT p.id, p.name, pc.name
+FROM  products p
+LEFT JOIN product_categories pc ON p.id = pc.id
+UNION
+SELECT p.id, p.name, pc.name
+FROM products p
+JOIN product_categories pc ON p.id = pc.id
+
+
+
+
+
+CREATE DATABASE IF NOT EXISTS arif;
+ 
+USE arif
+
+CREATE TABLE product_categories(
+   id int not null auto_increment primary key,
+   name varchar(355) not null,
+   created_date DATETIME NOT NULL DEFAULT NOW()
+) ENGINE=InnoDB;
+ 
+CREATE TABLE products(
+   id int not null primary key,
+   name varchar(355) not null,
+   category_id int not null,
+   created_date DATETIME NOT NULL DEFAULT NOW(),
+   FOREIGN KEY fk_cat(category_id)
+   REFERENCES product_categories(id)
+   ON UPDATE CASCADE
+   ON DELETE RESTRICT
+)ENGINE=InnoDB;
+
+INSERT INTO product_categories(id,name,created_date) VALUES (1,"Peralatan Mandi",NOW());
+INSERT INTO product_categories(id,name,created_date) VALUES (2,"Minuman Kemasan",NOW());
+INSERT INTO product_categories(id,name,created_date) VALUES (3,"Produk Susu",NOW());
+
+
+
+INSERT INTO products(id,name,category_id,created_date) VALUES (1,"Sabun Wangi",1,NOW());
+INSERT INTO products(id,name,category_id,created_date) VALUES (2,"Minuman Colai",2,NOW());
+INSERT INTO products(id,name,category_id,created_date) VALUES (3,"Prenagon Gold",3,NOW());
+
+INSERT INTO products(id,name,category_id,created_date) VALUES (5,"Aquaa",2,NOW());
+INSERT INTO products(id,name,category_id,created_date) VALUES (6,"The Botol",2,NOW());
+INSERT INTO products(id,name,category_id,created_date) VALUES (7,"Sampo",1,NOW());
+
+
+
+SELECT p.id, p.name, pc.name
+FROM  products p
+LEFT JOIN product_categories pc ON p.id = pc.id
+UNION
+SELECT p.id, p.name, pc.name
+FROM products p
+JOIN product_categories pc ON p.id = pc.id
+
+
+
+
+
